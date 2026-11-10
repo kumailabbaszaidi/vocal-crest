@@ -1,5 +1,5 @@
 /**
- * Vocal Crest â€” Main Interactive Script
+ * Vocal Crest — Main Interactive Script
  * Handles sticky header, mobile drawer, accessible FAQ accordions,
  * URL query pre-selection, and contact form validation.
  */
