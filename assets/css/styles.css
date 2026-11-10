@@ -630,24 +630,6 @@ button, input, select, textarea {
   pointer-events: none;
 }
 
-.hero__bg-wave {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.75;
-}
-
-.hero__bg-wave svg {
-  width: 100%;
-  min-width: 1100px;
-  height: auto;
-  max-height: 360px;
-}
-
 .hero > .container {
   position: relative;
   z-index: 1;
@@ -685,20 +667,11 @@ button, input, select, textarea {
   font-size: var(--fs-hero);
   line-height: 1.06;
   letter-spacing: -0.026em;
-  margin-bottom: clamp(1.1rem, 1.6vw, 1.4rem);
+  margin-bottom: clamp(1.25rem, 1.8vw, 1.6rem);
 }
 
 .hero__title span {
   display: block;
-}
-
-.hero__accent-bar {
-  width: 56px;
-  height: 3.5px;
-  border-radius: 99px;
-  background: var(--cyan);
-  box-shadow: 0 0 14px rgba(33, 241, 254, 0.45);
-  margin-bottom: clamp(1.25rem, 1.8vw, 1.6rem);
 }
 
 .hero__copy {
@@ -748,7 +721,7 @@ button, input, select, textarea {
   background: linear-gradient(165deg, rgba(13, 26, 49, 0.94) 0%, rgba(7, 15, 30, 0.97) 100%);
   border-radius: 26px;
   padding: clamp(1.5rem, 2.4vw, 2.25rem);
-  box-shadow: 0 28px 65px -16px rgba(0, 0, 0, 0.78), inset 0 0 0 1px rgba(33, 241, 254, 0.2);
+  box-shadow: 0 28px 65px -16px rgba(0, 0, 0, 0.78);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -807,7 +780,7 @@ button, input, select, textarea {
   padding: clamp(1.35rem, 2vw, 1.75rem) clamp(1.15rem, 1.8vw, 1.65rem);
   border-radius: 20px;
   background: #040913;
-  box-shadow: inset 0 0 0 1.5px rgba(33, 241, 254, 0.36), 0 16px 36px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.75);
   text-decoration: none;
   transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), background var(--t-fast);
 }
@@ -815,7 +788,7 @@ button, input, select, textarea {
 .hero-demo-card__box:hover {
   transform: translateY(-2px);
   background: #060E1D;
-  box-shadow: inset 0 0 0 1.5px var(--cyan), 0 20px 42px -10px rgba(33, 241, 254, 0.22);
+  box-shadow: 0 20px 42px -10px rgba(33, 241, 254, 0.22);
 }
 
 .hero-demo-card__live {
@@ -906,6 +879,11 @@ button, input, select, textarea {
   color: var(--text-on-dark-muted);
 }
 
+.credibility-copy {
+  display: grid;
+  gap: 1.1rem;
+}
+
 .founders-section {
   padding-top: clamp(3rem, 5vw, 5rem);
 }
@@ -917,10 +895,10 @@ button, input, select, textarea {
 }
 
 .founder-card {
-  background: var(--bg-light-card);
-  border-radius: var(--r-md);
+  background: var(--surface-white);
+  border-radius: var(--r-lg);
   padding: clamp(1.75rem, 2.6vw, 2.5rem);
-  box-shadow: var(--shadow-card-light);
+  box-shadow: var(--shadow-light-1);
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
@@ -967,7 +945,7 @@ button, input, select, textarea {
   font-family: var(--font-body);
   font-size: 0.98rem;
   line-height: 1.68;
-  color: var(--text-on-light-muted);
+  color: var(--text-on-light-secondary);
   margin: 0;
 }
 
