@@ -1,209 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us — Vocal Crest</title>
-<meta name="description" content="Be ready for the next customer. Talk to Vocal Crest about an AI receptionist, website chatbot, or website for your business.">
-<meta name="theme-color" content="#050A14">
-<link rel="icon" type="image/png" href="assets/images/favicon.png">
-<!-- Google Fonts: Poppins + Bricolage Grotesque -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us â€” Vocal Crest</title>
+  <meta name="description" content="Be ready for the next customer. Talk to Vocal Crest about an AI receptionist, website chatbot, or website for your business.">
+  <meta name="theme-color" content="#050A14">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Google Fonts: Poppins + Bricolage Grotesque -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-<a href="#main-content" class="skip-link">Skip to main content</a>
-<!-- Dark Sticky Header -->
-<header class="site-header" data-header>
-<div class="container site-header__inner">
-<a href="index.html" class="brand" aria-label="Vocal Crest Home">
-<img src="assets/images/vocal-crest-logo.png" alt="Vocal Crest logo" width="210" height="39">
-</a>
-<nav class="nav" aria-label="Primary Navigation">
-<ul class="nav__list">
-<li><a href="index.html" class="nav__link">Home</a></li>
-<li><a href="about.html" class="nav__link">About Us</a></li>
-<li><a href="pricing.html" class="nav__link">Pricing</a></li>
-<li><a href="contact.html" class="nav__link" aria-current="page">Contact Us</a></li>
-</ul>
-</nav>
-<div class="site-header__cta">
-<a href="contact.html?intent=demo" class="btn btn--primary">
-<span>Book a Demo</span>
-<svg class="btn__ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-<path d="M3.5 12.5L12.5 3.5M12.5 3.5H5.5M12.5 3.5V10.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-</a>
-</div>
-<button type="button" class="menu-btn" data-menu-btn aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
-<span>Menu</span>
-<span class="menu-btn__lines" aria-hidden="true">
-<span></span>
-<span></span>
-<span></span>
-</span>
-</button>
-</div>
-<div id="mobile-drawer" class="mobile-drawer" data-mobile-drawer hidden>
-<ul class="mobile-drawer__list">
-<li><a href="index.html" class="mobile-drawer__link">Home</a></li>
-<li><a href="about.html" class="mobile-drawer__link">About Us</a></li>
-<li><a href="pricing.html" class="mobile-drawer__link">Pricing</a></li>
-<li><a href="contact.html" class="mobile-drawer__link" aria-current="page">Contact Us</a></li>
-</ul>
-<a href="contact.html?intent=demo" class="btn btn--primary btn--full">
-<span>Book a Demo</span>
-</a>
-</div>
-</header>
-<main id="main-content">
-<!-- 1. Contact Section (Editorial Split + Form Stage) -->
-<section class="section" aria-labelledby="contact-heading">
-<div class="container">
-<div class="contact-layout">
-<div>
-<span class="eyebrow">Contact Vocal Crest</span>
-<h1 id="contact-heading" class="display-1">
-Be ready for the <span class="text-cyan">next customer.</span>
-</h1>
-<p class="lead" style="margin-top: 1.25rem;">
-Talk to us about an AI receptionist, website chatbot or website for your business. We handle the setup and ongoing management so you stay focused on your customers.
-</p>
-<div class="contact-info-list">
-<div class="contact-info-card">
-<h3>1. Show us how your business works</h3>
-<p>Tell us about your services, opening hours, common customer questions, booking process and how you want enquiries handled.</p>
-</div>
-<div class="contact-info-card">
-<h3>2. We build your setup</h3>
-<p>We configure your AI receptionist, website chatbot or website around your business and test everything with you before launch.</p>
-</div>
-<div class="contact-info-card">
-<h3>3. Transparent confirmation before starting</h3>
-<p>Setup fees, usage allowances and additional charges are confirmed before you start. Website design is quoted separately.</p>
-</div>
-</div>
-</div>
-<!-- Crisp White Form Stage -->
-<div class="form-stage">
-<h2>Book a Demo or Send an Enquiry</h2>
-<p class="form-stage__sub">
-Complete the details below and our team will follow up to walk through the right setup for your business.
-</p>
-<div data-selected-plan-banner hidden style="margin-bottom: 1.25rem; padding: 0.85rem 1.1rem; border-radius: 12px; background: #E3FAFC; color: #005A64; font-size: 0.9rem;">
-Selected plan / service: <strong data-selected-plan-name></strong>
-</div>
-<form data-contact-form novalidate>
-<div class="form-grid">
-<div class="field">
-<label for="full-name">Your Name <span class="req" aria-hidden="true">*</span></label>
-<input type="text" id="full-name" name="fullName" autocomplete="name" placeholder="Jane Doe" required aria-describedby="full-name-error">
-<span id="full-name-error" class="field__error" role="alert"></span>
-</div>
-<div class="field">
-<label for="business-name">Business Name <span class="req" aria-hidden="true">*</span></label>
-<input type="text" id="business-name" name="businessName" autocomplete="organization" placeholder="Your Local Business" required aria-describedby="business-name-error">
-<span id="business-name-error" class="field__error" role="alert"></span>
-</div>
-<div class="field">
-<label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
-<input type="email" id="email" name="email" autocomplete="email" placeholder="you@yourbusiness.com" required aria-describedby="email-error">
-<span id="email-error" class="field__error" role="alert"></span>
-</div>
-<div class="field">
-<label for="phone">Phone Number <span class="req" aria-hidden="true">*</span></label>
-<input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" required aria-describedby="phone-error">
-<span id="phone-error" class="field__error" role="alert"></span>
-</div>
-<div class="field">
-<label for="plan">Plan or Service of Interest</label>
-<select id="plan" name="plan">
-<option value="">Select a plan or service (optional)</option>
-<option value="vocal-chat">Vocal Chat — $297/month</option>
-<option value="vocal-receptionist">Vocal Receptionist — $497/month</option>
-<option value="vocal-suite">Vocal Suite — $797/month</option>
-<option value="website">Websites for Local Businesses (Quoted Separately)</option>
-</select>
-</div>
-<div class="field">
-<label for="enquiry-type">How can we help?</label>
-<select id="enquiry-type" name="enquiryType">
-<option value="demo">Book a Demo</option>
-<option value="pricing">Plan &amp; Setup Enquiry</option>
-<option value="website-review">Review My Existing Website</option>
-<option value="new-website">Build a New Website</option>
-</select>
-</div>
-<div class="field field--full">
-<label for="website-url">Current Website URL (if applicable)</label>
-<input type="url" id="website-url" name="websiteUrl" placeholder="https://www.yourbusiness.com">
-</div>
-<div class="field field--full">
-<label for="message">Tell us about your business and how you handle calls or enquiries <span class="req" aria-hidden="true">*</span></label>
-<textarea id="message" name="message" placeholder="Share your services, opening hours, or what you'd like help covering..." required aria-describedby="message-error"></textarea>
-<span id="message-error" class="field__error" role="alert"></span>
-</div>
-<div class="field field--full" style="margin-top: 0.4rem;">
-<button type="submit" class="btn btn--dark btn--lg btn--full">
-<span>Submit Enquiry</span>
-<svg class="btn__ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
-<path d="M3.5 12.5L12.5 3.5M12.5 3.5H5.5M12.5 3.5V10.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-</button>
-</div>
-</div>
-<div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
-</form>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- Dark Footer -->
-<footer class="site-footer">
-<div class="container">
-<div class="site-footer__grid">
-<div class="site-footer__brand">
-<a href="index.html" class="brand" aria-label="Vocal Crest Home">
-<img src="assets/images/vocal-crest-logo.png" alt="Vocal Crest logo" width="195" height="36" loading="lazy">
-</a>
-<p>Vocal Crest — AI receptionists. Website chat. More opportunities to grow.</p>
-</div>
-<div>
-<h3 class="site-footer__heading">Navigation</h3>
-<ul class="site-footer__list">
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About Us</a></li>
-<li><a href="pricing.html">Pricing</a></li>
-<li><a href="contact.html">Contact Us</a></li>
-</ul>
-</div>
-<div>
-<h3 class="site-footer__heading">Plans</h3>
-<ul class="site-footer__list">
-<li><a href="pricing.html#vocal-chat">Vocal Chat — $297/mo</a></li>
-<li><a href="pricing.html#vocal-receptionist">Vocal Receptionist — $497/mo</a></li>
-<li><a href="pricing.html#vocal-suite">Vocal Suite — $797/mo</a></li>
-<li><a href="contact.html?service=website">Websites for Local Businesses</a></li>
-</ul>
-</div>
-<div>
-<h3 class="site-footer__heading">Enquiries</h3>
-<ul class="site-footer__list">
-<li><a href="contact.html?intent=demo">Book a Demo</a></li>
-<li><a href="contact.html">Request a Callback</a></li>
-<li><a href="pricing.html">Compare Plans</a></li>
-</ul>
-</div>
-</div>
-<div class="site-footer__bottom">
-<p>&copy; 2025 Vocal Crest. All rights reserved.</p>
-<p>AI receptionists, website chatbots and websites built for local businesses.</p>
-</div>
-</div>
-</footer>
-<script src="assets/js/main.js" defer></script>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Dark Sticky Header -->
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a href="index.html" class="brand" aria-label="Vocal Crest Home">
+        <img src="assets/images/vocal-crest-logo.png" alt="Vocal Crest logo" width="210" height="39">
+      </a>
+
+      <nav class="nav" aria-label="Primary Navigation">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Home</a></li>
+          <li><a href="about.html" class="nav__link">About Us</a></li>
+          <li><a href="pricing.html" class="nav__link">Pricing</a></li>
+          <li><a href="contact.html" class="nav__link" aria-current="page">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__cta">
+        <a href="contact.html?intent=demo" class="btn btn--primary">
+          <span>Book a Demo</span>
+          <svg class="btn__ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <path d="M3.5 12.5L12.5 3.5M12.5 3.5H5.5M12.5 3.5V10.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+      <button type="button" class="menu-btn" data-menu-btn aria-expanded="false" aria-controls="mobile-drawer" aria-label="Toggle navigation menu">
+        <span>Menu</span>
+        <span class="menu-btn__lines" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+
+    <div id="mobile-drawer" class="mobile-drawer" data-mobile-drawer hidden>
+      <ul class="mobile-drawer__list">
+        <li><a href="index.html" class="mobile-drawer__link">Home</a></li>
+        <li><a href="about.html" class="mobile-drawer__link">About Us</a></li>
+        <li><a href="pricing.html" class="mobile-drawer__link">Pricing</a></li>
+        <li><a href="contact.html" class="mobile-drawer__link" aria-current="page">Contact Us</a></li>
+      </ul>
+      <a href="contact.html?intent=demo" class="btn btn--primary btn--full">
+        <span>Book a Demo</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- 1. Contact Section (Editorial Split + Form Stage) -->
+    <section class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="contact-layout">
+          <div>
+            <span class="eyebrow">Contact Vocal Crest</span>
+            <h1 id="contact-heading" class="display-1">
+              Be ready for the <span class="text-cyan">next customer.</span>
+            </h1>
+            <p class="lead" style="margin-top: 1.25rem;">
+              Talk to us about an AI receptionist, website chatbot or website for your business. We handle the setup and ongoing management so you stay focused on your customers.
+            </p>
+
+            <div class="contact-info-list">
+              <div class="contact-info-card">
+                <h3>1. Show us how your business works</h3>
+                <p>Tell us about your services, opening hours, common customer questions, booking process and how you want enquiries handled.</p>
+              </div>
+              <div class="contact-info-card">
+                <h3>2. We build your setup</h3>
+                <p>We configure your AI receptionist, website chatbot or website around your business and test everything with you before launch.</p>
+              </div>
+              <div class="contact-info-card">
+                <h3>3. Transparent confirmation before starting</h3>
+                <p>Setup fees, usage allowances and additional charges are confirmed before you start. Website design is quoted separately.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Crisp White Form Stage -->
+          <div class="form-stage">
+            <h2>Book a Demo or Send an Enquiry</h2>
+            <p class="form-stage__sub">
+              Complete the details below and our team will follow up to walk through the right setup for your business.
+            </p>
+
+            <div data-selected-plan-banner hidden style="margin-bottom: 1.25rem; padding: 0.85rem 1.1rem; border-radius: 12px; background: #E3FAFC; border: 1px solid #9AE6F0; color: #005A64; font-size: 0.9rem;">
+              Selected plan / service: <strong data-selected-plan-name></strong>
+            </div>
+
+            <form data-contact-form novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="full-name">Your Name <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="full-name" name="fullName" autocomplete="name" placeholder="Jane Doe" required aria-describedby="full-name-error">
+                  <span id="full-name-error" class="field__error" role="alert"></span>
+                </div>
+
+                <div class="field">
+                  <label for="business-name">Business Name <span class="req" aria-hidden="true">*</span></label>
+                  <input type="text" id="business-name" name="businessName" autocomplete="organization" placeholder="Your Local Business" required aria-describedby="business-name-error">
+                  <span id="business-name-error" class="field__error" role="alert"></span>
+                </div>
+
+                <div class="field">
+                  <label for="email">Email Address <span class="req" aria-hidden="true">*</span></label>
+                  <input type="email" id="email" name="email" autocomplete="email" placeholder="you@yourbusiness.com" required aria-describedby="email-error">
+                  <span id="email-error" class="field__error" role="alert"></span>
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone Number <span class="req" aria-hidden="true">*</span></label>
+                  <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 000-0000" required aria-describedby="phone-error">
+                  <span id="phone-error" class="field__error" role="alert"></span>
+                </div>
+
+                <div class="field">
+                  <label for="plan">Plan or Service of Interest</label>
+                  <select id="plan" name="plan">
+                    <option value="">Select a plan or service (optional)</option>
+                    <option value="vocal-chat">Vocal Chat â€” $297/month</option>
+                    <option value="vocal-receptionist">Vocal Receptionist â€” $497/month</option>
+                    <option value="vocal-suite">Vocal Suite â€” $797/month</option>
+                    <option value="website">Websites for Local Businesses (Quoted Separately)</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="enquiry-type">How can we help?</label>
+                  <select id="enquiry-type" name="enquiryType">
+                    <option value="demo">Book a Demo</option>
+                    <option value="pricing">Plan &amp; Setup Enquiry</option>
+                    <option value="website-review">Review My Existing Website</option>
+                    <option value="new-website">Build a New Website</option>
+                  </select>
+                </div>
+
+                <div class="field field--full">
+                  <label for="website-url">Current Website URL (if applicable)</label>
+                  <input type="url" id="website-url" name="websiteUrl" placeholder="https://www.yourbusiness.com">
+                </div>
+
+                <div class="field field--full">
+                  <label for="message">Tell us about your business and how you handle calls or enquiries <span class="req" aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" placeholder="Share your services, opening hours, or what you'd like help covering..." required aria-describedby="message-error"></textarea>
+                  <span id="message-error" class="field__error" role="alert"></span>
+                </div>
+
+                <div class="field field--full" style="margin-top: 0.4rem;">
+                  <button type="submit" class="btn btn--dark btn--lg btn--full">
+                    <span>Submit Enquiry</span>
+                    <svg class="btn__ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                      <path d="M3.5 12.5L12.5 3.5M12.5 3.5H5.5M12.5 3.5V10.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Dark Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a href="index.html" class="brand" aria-label="Vocal Crest Home">
+            <img src="assets/images/vocal-crest-logo.png" alt="Vocal Crest logo" width="195" height="36" loading="lazy">
+          </a>
+          <p>Vocal Crest â€” AI receptionists. Website chat. More opportunities to grow.</p>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Navigation</h3>
+          <ul class="site-footer__list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Plans</h3>
+          <ul class="site-footer__list">
+            <li><a href="pricing.html#vocal-chat">Vocal Chat â€” $297/mo</a></li>
+            <li><a href="pricing.html#vocal-receptionist">Vocal Receptionist â€” $497/mo</a></li>
+            <li><a href="pricing.html#vocal-suite">Vocal Suite â€” $797/mo</a></li>
+            <li><a href="contact.html?service=website">Websites for Local Businesses</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="site-footer__heading">Enquiries</h3>
+          <ul class="site-footer__list">
+            <li><a href="contact.html?intent=demo">Book a Demo</a></li>
+            <li><a href="contact.html">Request a Callback</a></li>
+            <li><a href="pricing.html">Compare Plans</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>&copy; 2025 Vocal Crest. All rights reserved.</p>
+        <p>AI receptionists, website chatbots and websites built for local businesses.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
