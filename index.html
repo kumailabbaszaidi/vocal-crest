@@ -404,11 +404,11 @@
             </div>
 
             <div class="calc-inputs-list">
-              <!-- Input 1: Average job value ($) -->
+              <!-- Input 1: Average job value -->
               <div class="calc-input-card">
                 <div class="calc-input-card__head">
-                  <label for="calc-job-value" class="calc-input-card__label">Average job value ($)</label>
-                  <span class="calc-input-card__badge">USD</span>
+                  <label for="calc-job-value" class="calc-input-card__label">Average job value</label>
+                  <span class="calc-input-card__badge">USD ($)</span>
                 </div>
                 <div class="calc-input-wrap">
                   <span class="calc-input-affix calc-input-affix--prefix" aria-hidden="true">$</span>
@@ -418,7 +418,7 @@
                     class="calc-input calc-input--with-prefix"
                     value="500"
                     min="0"
-                    step="10"
+                    step="any"
                     inputmode="decimal"
                     data-calc-input="jobValue"
                   >
@@ -448,7 +448,7 @@
                     class="calc-input"
                     value="10"
                     min="0"
-                    step="1"
+                    step="any"
                     inputmode="decimal"
                     data-calc-input="missedPerWeek"
                   >
@@ -479,7 +479,7 @@
                     value="30"
                     min="0"
                     max="100"
-                    step="1"
+                    step="any"
                     inputmode="decimal"
                     data-calc-input="recoverablePct"
                   >
@@ -511,7 +511,7 @@
                     value="30"
                     min="0"
                     max="100"
-                    step="1"
+                    step="any"
                     inputmode="decimal"
                     data-calc-input="conversionPct"
                   >
@@ -551,19 +551,19 @@
               <div class="calc-metric-item">
                 <span class="calc-metric-item__label">New Recovered Inquiries Total</span>
                 <output for="calc-missed-week calc-recoverable-pct" class="calc-metric-item__value" data-calc-out="recoveredInquiries">12</output>
-                <span class="calc-metric-item__formula">Monthly missed calls × recoverable %</span>
+                <span class="calc-metric-item__formula">Missed calls per month × New recoverable inquiries (%)</span>
               </div>
 
               <div class="calc-metric-item">
                 <span class="calc-metric-item__label">Recovered Inquiry Job Total</span>
                 <output for="calc-missed-week calc-recoverable-pct calc-conversion-pct" class="calc-metric-item__value text-cyan" data-calc-out="recoveredJobs">3.6</output>
-                <span class="calc-metric-item__formula">Recovered inquiries × becoming jobs %</span>
+                <span class="calc-metric-item__formula">New Recovered Inquiries Total × Recovered inquiries becoming jobs (%)</span>
               </div>
 
               <div class="calc-metric-item">
                 <span class="calc-metric-item__label">Total Missed Calls - Recovered Inquiries</span>
                 <output for="calc-missed-week calc-recoverable-pct calc-conversion-pct" class="calc-metric-item__value" data-calc-out="netMissedCalls">36.4</output>
-                <span class="calc-metric-item__formula">Missed calls/mo − Recovered job total</span>
+                <span class="calc-metric-item__formula">Missed calls per month − Recovered Inquiry Job Total</span>
               </div>
             </div>
 
@@ -573,6 +573,7 @@
                 <div class="calc-revenue-card__meta">
                   <span class="calc-revenue-card__tag">Monthly Impact</span>
                   <span class="calc-revenue-card__label">Missed Revenue Per Month</span>
+                  <span class="calc-metric-item__formula">(Total Missed Calls − Recovered Inquiries) × Average job value</span>
                 </div>
                 <output for="calc-job-value calc-missed-week calc-recoverable-pct calc-conversion-pct" class="calc-revenue-card__amount" data-calc-out="missedRevenueMonth">$18,200.00</output>
               </div>
@@ -581,6 +582,7 @@
                 <div class="calc-revenue-card__meta">
                   <span class="calc-revenue-card__tag calc-revenue-card__tag--cyan">Annual Impact</span>
                   <span class="calc-revenue-card__label">Missed Revenue Per Year</span>
+                  <span class="calc-metric-item__formula">Missed Revenue Per Month × 12</span>
                 </div>
                 <output for="calc-job-value calc-missed-week calc-recoverable-pct calc-conversion-pct" class="calc-revenue-card__amount calc-revenue-card__amount--cyan" data-calc-out="missedRevenueYear">$218,400.00</output>
               </div>
