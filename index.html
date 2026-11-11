@@ -377,6 +377,229 @@
       </div>
     </section>
 
+    <!-- 5B. Interactive Missed Opportunity Calculator Section -->
+    <section class="section calc-section" id="missed-opportunity-calculator" aria-labelledby="calculator-heading">
+      <div class="container">
+        <div class="sec-head">
+          <div>
+            <span class="eyebrow">Revenue Impact</span>
+            <h2 id="calculator-heading" class="display-1">Missed Opportunity <span class="text-cyan">Calculator</span></h2>
+          </div>
+          <p class="lead">
+            Adjust the numbers below to see how unanswered calls add up each month—and what recovering even a portion of those enquiries could mean for your business.
+          </p>
+        </div>
+
+        <div class="calc-grid" data-missed-calculator>
+          <!-- Left Side: User Input Fields -->
+          <div class="calc-inputs-panel" aria-label="Calculator Inputs">
+            <div class="calc-panel-head">
+              <div>
+                <span class="calc-panel-tag">Step 01 · Your Numbers</span>
+                <h3 class="calc-panel-title">Enter Your Business Estimates</h3>
+              </div>
+              <button type="button" class="calc-reset-btn" data-calc-reset aria-label="Reset calculator to default values">
+                Reset Defaults
+              </button>
+            </div>
+
+            <div class="calc-inputs-list">
+              <!-- Input 1: Average job value ($) -->
+              <div class="calc-input-card">
+                <div class="calc-input-card__head">
+                  <label for="calc-job-value" class="calc-input-card__label">Average job value ($)</label>
+                  <span class="calc-input-card__badge">USD</span>
+                </div>
+                <div class="calc-input-wrap">
+                  <span class="calc-input-affix calc-input-affix--prefix" aria-hidden="true">$</span>
+                  <input
+                    type="number"
+                    id="calc-job-value"
+                    class="calc-input calc-input--with-prefix"
+                    value="500"
+                    min="0"
+                    step="10"
+                    inputmode="decimal"
+                    data-calc-input="jobValue"
+                  >
+                </div>
+                <input
+                  type="range"
+                  class="calc-slider"
+                  min="50"
+                  max="5000"
+                  step="25"
+                  value="500"
+                  aria-label="Average job value slider"
+                  data-calc-slider="jobValue"
+                >
+              </div>
+
+              <!-- Input 2: Missed calls per week -->
+              <div class="calc-input-card">
+                <div class="calc-input-card__head">
+                  <label for="calc-missed-week" class="calc-input-card__label">Missed calls per week</label>
+                  <span class="calc-input-card__badge">Calls / Wk</span>
+                </div>
+                <div class="calc-input-wrap">
+                  <input
+                    type="number"
+                    id="calc-missed-week"
+                    class="calc-input"
+                    value="10"
+                    min="0"
+                    step="1"
+                    inputmode="decimal"
+                    data-calc-input="missedPerWeek"
+                  >
+                </div>
+                <input
+                  type="range"
+                  class="calc-slider"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="10"
+                  aria-label="Missed calls per week slider"
+                  data-calc-slider="missedPerWeek"
+                >
+              </div>
+
+              <!-- Input 3: New recoverable inquiries (%) -->
+              <div class="calc-input-card">
+                <div class="calc-input-card__head">
+                  <label for="calc-recoverable-pct" class="calc-input-card__label">New recoverable inquiries (%)</label>
+                  <span class="calc-input-card__badge">Percentage</span>
+                </div>
+                <div class="calc-input-wrap">
+                  <input
+                    type="number"
+                    id="calc-recoverable-pct"
+                    class="calc-input calc-input--with-suffix"
+                    value="30"
+                    min="0"
+                    max="100"
+                    step="1"
+                    inputmode="decimal"
+                    data-calc-input="recoverablePct"
+                  >
+                  <span class="calc-input-affix calc-input-affix--suffix" aria-hidden="true">%</span>
+                </div>
+                <input
+                  type="range"
+                  class="calc-slider"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="30"
+                  aria-label="New recoverable inquiries percentage slider"
+                  data-calc-slider="recoverablePct"
+                >
+              </div>
+
+              <!-- Input 4: Recovered inquiries becoming jobs (%) -->
+              <div class="calc-input-card">
+                <div class="calc-input-card__head">
+                  <label for="calc-conversion-pct" class="calc-input-card__label">Recovered inquiries becoming jobs (%)</label>
+                  <span class="calc-input-card__badge">Conversion</span>
+                </div>
+                <div class="calc-input-wrap">
+                  <input
+                    type="number"
+                    id="calc-conversion-pct"
+                    class="calc-input calc-input--with-suffix"
+                    value="30"
+                    min="0"
+                    max="100"
+                    step="1"
+                    inputmode="decimal"
+                    data-calc-input="conversionPct"
+                  >
+                  <span class="calc-input-affix calc-input-affix--suffix" aria-hidden="true">%</span>
+                </div>
+                <input
+                  type="range"
+                  class="calc-slider"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="30"
+                  aria-label="Recovered inquiries becoming jobs percentage slider"
+                  data-calc-slider="conversionPct"
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side: Auto-Calculated Output Summary Panel -->
+          <div class="calc-results-panel" aria-label="Calculated Results" aria-live="polite">
+            <div class="calc-panel-head">
+              <div>
+                <span class="calc-panel-tag calc-panel-tag--cyan">Step 02 · Real-Time Breakdown</span>
+                <h3 class="calc-panel-title">Estimated Opportunity Breakdown</h3>
+              </div>
+            </div>
+
+            <!-- 4 Call & Inquiry Breakdown Metrics -->
+            <div class="calc-metrics-grid">
+              <div class="calc-metric-item">
+                <span class="calc-metric-item__label">Missed calls per month</span>
+                <output for="calc-missed-week" class="calc-metric-item__value" data-calc-out="missedPerMonth">40</output>
+                <span class="calc-metric-item__formula">Missed calls per week × 4</span>
+              </div>
+
+              <div class="calc-metric-item">
+                <span class="calc-metric-item__label">New Recovered Inquiries Total</span>
+                <output for="calc-missed-week calc-recoverable-pct" class="calc-metric-item__value" data-calc-out="recoveredInquiries">12</output>
+                <span class="calc-metric-item__formula">Monthly missed calls × recoverable %</span>
+              </div>
+
+              <div class="calc-metric-item">
+                <span class="calc-metric-item__label">Recovered Inquiry Job Total</span>
+                <output for="calc-missed-week calc-recoverable-pct calc-conversion-pct" class="calc-metric-item__value text-cyan" data-calc-out="recoveredJobs">3.6</output>
+                <span class="calc-metric-item__formula">Recovered inquiries × becoming jobs %</span>
+              </div>
+
+              <div class="calc-metric-item">
+                <span class="calc-metric-item__label">Total Missed Calls - Recovered Inquiries</span>
+                <output for="calc-missed-week calc-recoverable-pct calc-conversion-pct" class="calc-metric-item__value" data-calc-out="netMissedCalls">36.4</output>
+                <span class="calc-metric-item__formula">Missed calls/mo − Recovered job total</span>
+              </div>
+            </div>
+
+            <!-- 2 Highlighted Revenue Impact Cards -->
+            <div class="calc-revenue-highlights">
+              <div class="calc-revenue-card">
+                <div class="calc-revenue-card__meta">
+                  <span class="calc-revenue-card__tag">Monthly Impact</span>
+                  <span class="calc-revenue-card__label">Missed Revenue Per Month</span>
+                </div>
+                <output for="calc-job-value calc-missed-week calc-recoverable-pct calc-conversion-pct" class="calc-revenue-card__amount" data-calc-out="missedRevenueMonth">$18,200.00</output>
+              </div>
+
+              <div class="calc-revenue-card calc-revenue-card--featured">
+                <div class="calc-revenue-card__meta">
+                  <span class="calc-revenue-card__tag calc-revenue-card__tag--cyan">Annual Impact</span>
+                  <span class="calc-revenue-card__label">Missed Revenue Per Year</span>
+                </div>
+                <output for="calc-job-value calc-missed-week calc-recoverable-pct calc-conversion-pct" class="calc-revenue-card__amount calc-revenue-card__amount--cyan" data-calc-out="missedRevenueYear">$218,400.00</output>
+              </div>
+            </div>
+
+            <div class="calc-results-footer">
+              <p>Want to start capturing more of the calls and enquiries your business is currently missing?</p>
+              <a href="/contact?intent=demo" class="btn btn--primary">
+                <span>Book a Demo</span>
+                <svg class="btn__ico" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                  <path d="M3.5 12.5L12.5 3.5M12.5 3.5H5.5M12.5 3.5V10.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 6. Dark Credibility & Differentiation Section -->
     <section class="section" aria-labelledby="credibility-heading">
       <div class="container">

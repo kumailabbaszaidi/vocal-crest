@@ -204,4 +204,157 @@
       contactForm.reset();
     });
   }
+
+  // 5. Interactive Missed Opportunity Calculator (Homepage)
+  const calcRoot = document.querySelector('[data-missed-calculator]');
+  if (calcRoot) {
+    const defaults = {
+      jobValue: 500,
+      missedPerWeek: 10,
+      recoverablePct: 30,
+      conversionPct: 30
+    };
+
+    const inputs = {
+      jobValue: calcRoot.querySelector('[data-calc-input="jobValue"]'),
+      missedPerWeek: calcRoot.querySelector('[data-calc-input="missedPerWeek"]'),
+      recoverablePct: calcRoot.querySelector('[data-calc-input="recoverablePct"]'),
+      conversionPct: calcRoot.querySelector('[data-calc-input="conversionPct"]')
+    };
+
+    const sliders = {
+      jobValue: calcRoot.querySelector('[data-calc-slider="jobValue"]'),
+      missedPerWeek: calcRoot.querySelector('[data-calc-slider="missedPerWeek"]'),
+      recoverablePct: calcRoot.querySelector('[data-calc-slider="recoverablePct"]'),
+      conversionPct: calcRoot.querySelector('[data-calc-slider="conversionPct"]')
+    };
+
+    const outputs = {
+      missedPerMonth: calcRoot.querySelector('[data-calc-out="missedPerMonth"]'),
+      recoveredInquiries: calcRoot.querySelector('[data-calc-out="recoveredInquiries"]'),
+      recoveredJobs: calcRoot.querySelector('[data-calc-out="recoveredJobs"]'),
+      netMissedCalls: calcRoot.querySelector('[data-calc-out="netMissedCalls"]'),
+      missedRevenueMonth: calcRoot.querySelector('[data-calc-out="missedRevenueMonth"]'),
+      missedRevenueYear: calcRoot.querySelector('[data-calc-out="missedRevenueYear"]')
+    };
+
+    const resetBtn = calcRoot.querySelector('[data-calc-reset]');
+
+    const currencyFormatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    const formatNumber = (num) => {
+      const rounded = Math.round((num + Number.EPSILON) * 100) / 100;
+      return rounded.toLocaleString('en-US', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+      });
+    };
+
+    const parseNonNegative = (el, fallback = 0) => {
+      if (!el) return fallback;
+      const parsed = parseFloat(el.value);
+      if (Number.isNaN(parsed) || parsed < 0) return 0;
+      return parsed;
+    };
+
+    const clampPercentage = (val) => Math.min(Math.max(val, 0), 100);
+
+    const recalculate = () => {
+      const jobValue = parseNonNegative(inputs.jobValue, defaults.jobValue);
+      const missedPerWeek = parseNonNegative(inputs.missedPerWeek, defaults.missedPerWeek);
+      const recoverablePct = clampPercentage(parseNonNegative(inputs.recoverablePct, defaults.recoverablePct));
+      const conversionPct = clampPercentage(parseNonNegative(inputs.conversionPct, defaults.conversionPct));
+
+      // 1. Missed calls per month = Missed calls per week * 4
+      const missedPerMonth = missedPerWeek * 4;
+
+      // 2. New Recovered Inquiries Total = Missed calls per month * (New recoverable inquiries % / 100)
+      const recoveredInquiries = missedPerMonth * (recoverablePct / 100);
+
+      // 3. Recovered Inquiry Job Total = New Recovered Inquiries Total * (Recovered inquiries becoming jobs % / 100)
+      const recoveredJobs = recoveredInquiries * (conversionPct / 100);
+
+      // 4. Total Missed Calls - Recovered Inquiries = Missed calls per month - Recovered Inquiry Job Total
+      const netMissedCalls = Math.max(0, missedPerMonth - recoveredJobs);
+
+      // 5. Missed Revenue Per Month = (Total Missed Calls - Recovered Inquiries) * Average job value
+      const missedRevenueMonth = netMissedCalls * jobValue;
+
+      // 6. Missed Revenue Per Year = Missed Revenue Per Month * 12
+      const missedRevenueYear = missedRevenueMonth * 12;
+
+      if (outputs.missedPerMonth) {
+        outputs.missedPerMonth.textContent = formatNumber(missedPerMonth);
+      }
+      if (outputs.recoveredInquiries) {
+        outputs.recoveredInquiries.textContent = formatNumber(recoveredInquiries);
+      }
+      if (outputs.recoveredJobs) {
+        outputs.recoveredJobs.textContent = formatNumber(recoveredJobs);
+      }
+      if (outputs.netMissedCalls) {
+        outputs.netMissedCalls.textContent = formatNumber(netMissedCalls);
+      }
+      if (outputs.missedRevenueMonth) {
+        outputs.missedRevenueMonth.textContent = currencyFormatter.format(missedRevenueMonth);
+      }
+      if (outputs.missedRevenueYear) {
+        outputs.missedRevenueYear.textContent = currencyFormatter.format(missedRevenueYear);
+      }
+    };
+
+    Object.keys(inputs).forEach((key) => {
+      const inputEl = inputs[key];
+      const sliderEl = sliders[key];
+
+      if (inputEl) {
+        inputEl.addEventListener('input', () => {
+          if (sliderEl && inputEl.value !== '') {
+            const numericVal = parseFloat(inputEl.value);
+            if (!Number.isNaN(numericVal)) {
+              sliderEl.value = String(
+                Math.min(Math.max(numericVal, parseFloat(sliderEl.min) || 0), parseFloat(sliderEl.max) || 100)
+              );
+            }
+          }
+          recalculate();
+        });
+
+        inputEl.addEventListener('blur', () => {
+          if (inputEl.value.trim() === '' || parseFloat(inputEl.value) < 0) {
+            inputEl.value = '0';
+          } else if ((key === 'recoverablePct' || key === 'conversionPct') && parseFloat(inputEl.value) > 100) {
+            inputEl.value = '100';
+          }
+          recalculate();
+        });
+      }
+
+      if (sliderEl) {
+        sliderEl.addEventListener('input', () => {
+          if (inputEl) {
+            inputEl.value = sliderEl.value;
+          }
+          recalculate();
+        });
+      }
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        Object.keys(defaults).forEach((key) => {
+          if (inputs[key]) inputs[key].value = String(defaults[key]);
+          if (sliders[key]) sliders[key].value = String(defaults[key]);
+        });
+        recalculate();
+      });
+    }
+
+    recalculate();
+  }
 })();

@@ -1469,6 +1469,373 @@ button, input, select, textarea {
   }
 }
 
+/* ---------- 04B. Missed Opportunity Calculator Section ---------- */
+.calc-section {
+  position: relative;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  gap: clamp(1.5rem, 2.8vw, 2.75rem);
+  align-items: stretch;
+}
+
+.calc-inputs-panel,
+.calc-results-panel {
+  border-radius: var(--r-xl);
+  padding: clamp(1.75rem, 2.8vw, 2.75rem);
+  border: 0;
+  box-shadow: var(--shadow-dark-1);
+  display: flex;
+  flex-direction: column;
+}
+
+.calc-inputs-panel {
+  background: var(--bg-navy);
+}
+
+.calc-results-panel {
+  background: linear-gradient(165deg, #0E1D38 0%, #081224 100%);
+  justify-content: space-between;
+}
+
+.calc-panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: clamp(1.5rem, 2.2vw, 2rem);
+}
+
+.calc-panel-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted);
+  margin-bottom: 0.35rem;
+}
+
+.calc-panel-tag--cyan {
+  color: var(--cyan);
+}
+
+.calc-panel-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.15rem + 0.65vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-on-dark);
+  margin: 0;
+}
+
+.calc-reset-btn {
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--r-pill);
+  border: 0;
+  background: rgba(255, 255, 255, 0.07);
+  color: var(--text-on-dark-muted);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+
+.calc-reset-btn:hover {
+  background: rgba(33, 241, 254, 0.14);
+  color: var(--cyan);
+}
+
+.calc-inputs-list {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.calc-input-card {
+  padding: 1.15rem 1.35rem;
+  border-radius: var(--r-md);
+  background: var(--bg-dark);
+  border: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.calc-input-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.calc-input-card__label {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-on-dark);
+}
+
+.calc-input-card__badge {
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--r-pill);
+  background: rgba(33, 241, 254, 0.1);
+  color: var(--cyan);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  flex: none;
+}
+
+.calc-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.calc-input-affix {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cyan);
+  pointer-events: none;
+}
+
+.calc-input-affix--prefix {
+  left: 1rem;
+}
+
+.calc-input-affix--suffix {
+  right: 1rem;
+}
+
+.calc-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.65rem 1rem;
+  border-radius: var(--r-sm);
+  border: 0;
+  background: var(--bg-navy-elevated);
+  color: var(--text-on-dark);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: background var(--t-fast), box-shadow var(--t-fast);
+}
+
+.calc-input--with-prefix {
+  padding-left: 2.15rem;
+}
+
+.calc-input--with-suffix {
+  padding-right: 2.35rem;
+}
+
+.calc-input:focus {
+  outline: none;
+  background: #132544;
+  box-shadow: 0 0 0 2px rgba(33, 241, 254, 0.45);
+}
+
+/* Custom Range Slider */
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.12);
+  outline: none;
+  cursor: pointer;
+  margin-top: 0.15rem;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px rgba(33, 241, 254, 0.6);
+  cursor: pointer;
+  transition: transform var(--t-fast);
+}
+
+.calc-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.calc-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px rgba(33, 241, 254, 0.6);
+  cursor: pointer;
+  transition: transform var(--t-fast);
+}
+
+/* Right Side: 4 Calculated Call & Inquiry Metrics Grid */
+.calc-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.calc-metric-item {
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--r-md);
+  background: rgba(5, 10, 20, 0.68);
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+
+.calc-metric-item__label {
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--text-on-dark-muted);
+  line-height: 1.38;
+}
+
+.calc-metric-item__value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.35rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--text-on-dark);
+}
+
+.calc-metric-item__formula {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--text-on-dark-subtle);
+}
+
+/* Highlighted Monthly & Annual Missed Revenue Cards */
+.calc-revenue-highlights {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.calc-revenue-card {
+  padding: clamp(1.35rem, 2vw, 1.75rem) clamp(1.4rem, 2.2vw, 1.85rem);
+  border-radius: var(--r-lg);
+  background: var(--bg-dark);
+  border: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.calc-revenue-card--featured {
+  background: linear-gradient(135deg, rgba(33, 241, 254, 0.16) 0%, rgba(5, 10, 20, 0.92) 100%);
+  box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.65);
+}
+
+.calc-revenue-card__meta {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.calc-revenue-card__tag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted);
+}
+
+.calc-revenue-card__tag--cyan {
+  color: var(--cyan);
+}
+
+.calc-revenue-card__label {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1rem + 0.35vw, 1.3rem);
+  font-weight: 700;
+  color: var(--text-on-dark);
+}
+
+.calc-revenue-card__amount {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 1.45rem + 1.4vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--text-on-dark);
+}
+
+.calc-revenue-card__amount--cyan {
+  color: var(--cyan);
+  font-size: clamp(2.1rem, 1.55rem + 1.65vw, 3.05rem);
+}
+
+.calc-results-footer {
+  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.calc-results-footer p {
+  font-size: 0.88rem;
+  color: var(--text-on-dark-muted);
+  max-width: 34ch;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .calc-inputs-panel,
+  .calc-results-panel {
+    padding: 1.35rem 1.15rem;
+    border-radius: var(--r-lg);
+  }
+  .calc-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .calc-revenue-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+  .calc-results-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .calc-results-footer .btn {
+    width: 100%;
+  }
+}
+
 /* ---------- 05. Dark Credibility / Managed Service Split ---------- */
 .credibility-grid {
   display: grid;
